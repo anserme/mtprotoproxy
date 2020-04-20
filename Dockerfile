@@ -5,7 +5,7 @@ RUN setcap cap_net_bind_service=+ep /usr/local/bin/python3.8
 
 RUN pip3 --no-cache-dir install cryptography uvloop
 
-COPY mtprotoproxy.py config.py /home/tgproxy/
+COPY mtprotoproxy.py config.py runmt.sh /home/tgproxy/
 
 RUN useradd tgproxy -u 10000
 RUN chown -R tgproxy:tgproxy /home/tgproxy
@@ -13,4 +13,4 @@ RUN chown -R tgproxy:tgproxy /home/tgproxy
 USER tgproxy
 
 WORKDIR /home/tgproxy/
-CMD ["python3", "mtprotoproxy.py"]
+CMD ["sh", "/home/tgproxy/runmt.sh"]
