@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 if [ ! -z "${port}" ]
     then
-          sed -i "s|\"443\": 2333,|\"port\": ${api_port},|"  "/home/tgproxy/config.py"
+          sed -i "s|\"mtport\"|\"${port}\"|g"  "/home/tgproxy/config.py"
 fi
 if [ ! -z "${user}" ]
     then
